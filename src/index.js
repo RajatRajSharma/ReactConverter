@@ -5,14 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-// index.html have div id=root 
+// Components from app.js ,with the help of Index.js will be taken to the mentioned element
+// strict mode is on below
 root.render(
   <React.StrictMode>
     <App /> 
   </React.StrictMode>
-);  /* It say's that where ever there is id=root put the app component there  */
+);  /* It say's that where ever there is id=root put the app component there of app.js  */
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 reportWebVitals();
