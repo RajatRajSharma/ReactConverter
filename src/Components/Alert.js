@@ -7,13 +7,14 @@ function Alert(props) {
         return lower.charAt(0).toUpperCase() + lower.slice(1);
     }
 
-  return (   // This Syntax is similar to if props.alert is false then apply <div>
+  return (   
+    <div style={{height: '50px'}}>    
+    {     // now these are not open but are under a div so they needed curve bracket
     props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
       <strong>{capitalize(props.alert.type)}</strong>:{props.alert.msg}
-      {/*    // if we are giving timer to alert function then there is no need of " X " button in Alert .
-      <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      */}
     </div>
+    }       
+    </div>  // Wrap alert under div container
   )
 }
 
