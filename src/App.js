@@ -11,8 +11,8 @@ import {
 } from "react-router-dom";
 
 function App() { 
-  const [mode, setMode] = useState('dark');  // State varible mode given default dark mode  
-  const [modeBtntext , setModeBtnText] = useState('Dark Mode');
+  const [mode, setMode] = useState('light');  // State varible mode given default dark mode  
+  const [modeBtntext , setModeBtnText] = useState('Light Mode');
   const [alert, setAlert] = useState(null);  // Making object of alert
 
   const showAlert = (message, type) =>{     // showAlert is a function
@@ -34,7 +34,7 @@ function App() {
     }else if(mode === 'dark'){
       setMode('light'); 
       setModeBtnText('Light Mode');
-      document.body.style.backgroundColor = "	#DEB887";
+      document.body.style.backgroundColor = "#DEB887";
       showAlert("Light mode has been enabled","danger");
       //document.title = "ReactBasic -Light Home";  // Website Title change
     }
@@ -46,10 +46,9 @@ function App() {
     <Alert alert={alert} />
     <div className="container my-3"> 
       <Routes>
-      {/* /users --> element 1
-          /users/home --> element 2 */}
             <Route exact path="/about" element={ <About mode={mode} toggleMode={toggleMode} modeBtntext={modeBtntext}/> }></Route>
             <Route exact path="/" element={ <TextForm showAlert={showAlert} heading="Converter Text Area with extra properties" mode={mode}/> }></Route>
+            {/* <TextForm showAlert={showAlert} heading="Converter Text Area with extra properties" mode={mode}/> */}
       </Routes>
     </div>
     </Router>

@@ -1,6 +1,7 @@
 // rfc     React function based component
 import React, {useState} from 'react' 
-// We imported "useState" hook from react
+
+document.body.style.backgroundColor = "#DEB887";  // >>> Default color added <<<
 
 export default function TextForm(props) {
     const handleUpClick = ()=>{             // UpperCase function
@@ -64,7 +65,7 @@ export default function TextForm(props) {
         </form>
     </div>
     <div className="container my-2" style={{color: props.mode==='dark'?'white':'#042743'}}>  
-            {/* */}
+
       <h3>Your text Summary</h3>
       <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} and {text.length} characters</p>
         {/* this text.split is given a .filter such that this will invoke when the condition of filter is followed */}
