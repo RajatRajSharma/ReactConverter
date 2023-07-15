@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import './App101.css';
 import Alert from './Components/Alert';
-import About from './Components/About';    // import About.js
+//import About from './Components/About';    // import About.js
 import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm'; 
-import {
-  BrowserRouter as Router,
-  Routes,  // Previous version "Switch" is now Known as " Routes "
-  Route
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Routes,  // Previous version "Switch" is now Known as " Routes "
+//   Route
+// } from "react-router-dom";
+/////////////////   ////
 
 function App() { 
   const [mode, setMode] = useState('light');  // State varible mode given default dark mode  
@@ -41,17 +42,17 @@ function App() {
   };
   return (          
     <>
-    <Router>
+    {/* <Router> */}
     <Navbar title="ReactConverter" aboutText="About" mode={mode} toggleMode={toggleMode} modeBtntext={modeBtntext} />
     <Alert alert={alert} />
     <div className="container my-3"> 
-      <Routes>
-            <Route exact path="/about" element={ <About mode={mode} toggleMode={toggleMode} modeBtntext={modeBtntext}/> }></Route>
-            <Route exact path="/" element={ <TextForm showAlert={showAlert} heading="Converter Text Area with extra properties" mode={mode}/> }></Route>
-            {/* <TextForm showAlert={showAlert} heading="Converter Text Area with extra properties" mode={mode}/> */}
-      </Routes>
+      {/*<Routes>
+             <Route exact path="/about" element={ <About mode={mode} toggleMode={toggleMode} modeBtntext={modeBtntext}/> }></Route>
+            <Route exact path="/" element={ <TextForm showAlert={showAlert} heading="Converter Text Area with extra properties" mode={mode}/> }></Route> */}
+            <TextForm showAlert={showAlert} heading="Converter Text Area with extra properties" mode={mode}/>
+      {/* </Routes> */}
     </div>
-    </Router>
+    {/* </Router> */}
     </>       
   );
 }
