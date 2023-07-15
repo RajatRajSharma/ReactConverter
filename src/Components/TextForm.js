@@ -39,7 +39,7 @@ export default function TextForm(props) {
         console.log("On Change");
         setText(event.target.value);  //This allows us to make changes and even save it
       }
-    const [text, setText] = useState('Enter your Ideology');
+    const [text, setText] = useState('Enter your Thoughts');
 // Datatype of entered data is text and 'Enter your Ideology' is the default text for TextArea Box
 // We can't change text directly but the updation is done through "setText" function
   return (
@@ -48,7 +48,7 @@ export default function TextForm(props) {
         <h2  className='mb-4'>{props.heading}</h2>
       <form>
       <div className="mb-3">
-        <label htmlFor="TextArea" className="form-label">TextArea for Ideology</label>
+        <label htmlFor="TextArea" className="form-label">TextArea for Thoughts</label>
         <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#008080':'	#F4A460', color: props.mode==='dark'?'white':'#042743'}} id="TextArea" rows="6"></textarea>
       </div>                                             {/* Calling on change function */}
                                                         {/* Style is written in {___} and then second {__} is for obj */}

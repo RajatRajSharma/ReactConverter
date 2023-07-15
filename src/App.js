@@ -49,7 +49,7 @@ function App() {
       {/*<Routes>
              <Route exact path="/about" element={ <About mode={mode} toggleMode={toggleMode} modeBtntext={modeBtntext}/> }></Route>
             <Route exact path="/" element={ <TextForm showAlert={showAlert} heading="Converter Text Area with extra properties" mode={mode}/> }></Route> */}
-            <TextForm showAlert={showAlert} heading="Converter Text Area with extra properties" mode={mode}/>
+            <TextForm showAlert={showAlert} heading="Converter Text Area with extra Functionality" mode={mode}/>
       {/* </Routes> */}
     </div>
     {/* </Router> */}
