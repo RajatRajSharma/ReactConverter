@@ -1,47 +1,37 @@
-// rfc     React function based component
 import React, {useState} from 'react' 
 
-document.body.style.backgroundColor = "#DEB887";  // >>> Default color added <<<
+document.body.style.backgroundColor = "#DEB887"; // >>>>  Default background color
 
 export default function TextForm(props) {
-    const handleUpClick = ()=>{             // UpperCase function
-        console.log("Uppercase was Clicked"+text);
+    const handleUpClick = ()=>{             
         let newText = text.toUpperCase();
         setText(newText);
         props.showAlert("Converted to UpperCase","success");
     }
-    const handleLowClick = ()=>{             // LowerCase function
-      console.log("Lowercase was Clicked"+text);
+    const handleLowClick = ()=>{            
       let newText = text.toLowerCase();
       setText(newText);
       props.showAlert("Converted to LowerCase","success");
     }
-    const handleClearClick = ()=>{             // Clear function
-      console.log("Clear text was Clicked"+text);
+    const handleClearClick = ()=>{             
       let newText = '';
       setText(newText);
       props.showAlert("All Text is Cleared from TextBox ","danger");
     }
-    const handleCopy = () => {             // Copy function
-      console.log("I copy of text has happened");
-      var text = document.getElementById("TextArea");
-      text.select();
-      navigator.clipboard.writeText(text.value);
-      document.getSelection().removeAllRanges();
+    const handleCopy = () => {            
+      navigator.clipboard.writeText(text);  //new way to copy
       props.showAlert("All the Text is Copied","info");
     }
-    const handleExtraSpace = () => {             // Remove Extra spaces function
+    const handleExtraSpace = () => {             
       let newText = text.split(/[ ]+/);
       setText(newText.join(""))
       props.showAlert("Extra Space Removed","primary");
     }
-    const handleOnChange = (event)=>{  // create an event out of it
-        console.log("On Change");
+    const handleOnChange = (event)=>{  
         setText(event.target.value);  //This allows us to make changes and even save it
       }
     const [text, setText] = useState('Enter your Thoughts');
-// Datatype of entered data is text and 'Enter your Ideology' is the default text for TextArea Box
-// We can't change text directly but the updation is done through "setText" function
+      // Updation is done by setText of handleOnChange function
   return (
     <>
     <div className=" container" style={{color: props.mode==='dark'?'white':'#042743'}} >
@@ -50,8 +40,7 @@ export default function TextForm(props) {
       <div className="mb-3">
         <label htmlFor="TextArea" className="form-label">TextArea for Thoughts</label>
         <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#008080':'	#F4A460', color: props.mode==='dark'?'white':'#042743'}} id="TextArea" rows="6"></textarea>
-      </div>                                             {/* Calling on change function */}
-                                                        {/* Style is written in {___} and then second {__} is for obj */}
+      </div>                                             
       <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleUpClick} type="button">Convert to Uppercase</button> 
                                                                   {/* Here type="button" will not let screen refreshed on clicking */}
       <button disabled={text.length===0} className="btn btn-info mx-2 my-1" onClick={handleLowClick} type="button">Convert to Lowercase</button>                             
@@ -67,8 +56,9 @@ export default function TextForm(props) {
     <div className="container my-2" style={{color: props.mode==='dark'?'white':'#042743'}}>  
 
       <h3>Your text Summary</h3>
-      <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} and {text.length} characters</p>
-        {/* this text.split is given a .filter such that this will invoke when the condition of filter is followed */}
+      <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} and {text.length} characters</p>
+          {/* it will split white spaces one or more */}
+{/* It will not count enter to next line as a word and word will be counted after first letter*/}
       <p>Average time required to read this is {0.008*text.split(" ").filter((element)=>{return element.length!==0}).length} min</p>
       <h3>Preview</h3>
       <p>{text.length>0?text:"Nothing to Preview !!!"}</p>
